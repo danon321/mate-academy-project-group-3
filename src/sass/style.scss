@@ -1,0 +1,16 @@
+@use 'abstracts' as *; // alternative: @use 'abstracts';
+@use 'base';
+
+.test-remove-it-later {
+  font-family: $font-family;
+  font-weight: $font-weight-regular;
+  color: $color-text-primary;
+  background: $color-button-gradient;
+  padding: 5px 30px;
+
+  @include for-phone {
+    font-size: 40px;
+    font-weight: $font-weight-bold;
+    background: $color-primary;
+  }
+}
