@@ -1,27 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './sass/style.scss';
+import { Header } from './Components/Header';
+import { Footer } from './Components/Footer';
+import { AppRouter } from './Components/AppRouter';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className="test-remove-it-later">Hi</button>
-      </header>
-    </div>
+    <div className='cryptoMainPage'>
+    <Header />
+    <main className='content'>
+      <AppRouter />
+    </main>
+    <Footer />
+  </div>
   );
 }
 
