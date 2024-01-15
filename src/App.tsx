@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './sass/style.scss';
 
 function App() {
   const a = 3;
@@ -20,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <button className="test-remove-it-later">Hi</button>
       </header>
     </div>
   );
