@@ -4,6 +4,8 @@ import './App.css';
 import './sass/style.scss';
 
 function App() {
+  const a = 3;
+
   return (
     <div className="App">
       <header className="App-header">
