@@ -1,0 +1,36 @@
+@use '../../sass/abstracts/' as *;
+
+.member-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 1s ease-in-out;
+
+  &:hover {
+    transform: rotateY(180deg);
+  }
+}
+
+.member-name {
+  color: $color-text-primary;
+  padding-bottom: 15px;
+}
+
+.member__container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-family;
+}
+
+.member__description {
+  color: $color-text-secondary;
+}
+
+.member__icon {
+  width: 20px;
+  height: 20px;
+}
