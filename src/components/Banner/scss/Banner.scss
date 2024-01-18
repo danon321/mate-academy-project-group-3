@@ -1,0 +1,64 @@
+@use '../../../sass/abstracts/index.scss';
+
+body {
+    background-color: #08173f;
+}
+
+.banner {
+    box-sizing: border-box;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &__partners {
+        margin-top: 200px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & button {
+        margin-top: 80px;
+        border-radius: 20px;
+        width: 180px;
+        height: 50px;
+    }
+    & > img {
+        position: absolute;
+        top:0;
+        right:-100px;
+    }
+
+    &__text {
+        margin-top: 105px;
+        font-family: index.$font-family;
+        color: white;
+        
+        & p {
+            text-align: left;
+            margin-top: 40px;
+            opacity: 0.6;
+            line-height: 25px;
+            width: 45%;
+        }
+        & h1 {
+            font-size: 42px;
+            text-align: left;
+            line-height: 55px;
+            font-weight: 500;
+            width: 40%;
+            & span {
+                color: index.$color-highlight;
+            }
+        }
+    }
+
+    &__img {
+        background-image: url('../bannerimg.png');
+        background-size: auto;
+        width: 30%;
+    }
+}
