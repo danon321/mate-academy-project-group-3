@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, useCallback, useMemo } from 'react';
+import { ChangeEvent, useState, useCallback, useMemo, useEffect } from 'react';
 import './calculator.scss';
 
 interface ExchangeRates {
@@ -36,6 +36,8 @@ export function Calculator() {
         }
     }), []);
 
+    const cryptoCurrencies = Object.keys(exchangeRates);
+
     const handleFromChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setFrom(event.target.value);
     };
@@ -45,7 +47,20 @@ export function Calculator() {
     };
 
     const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setAmount(parseFloat(event.target.value));
+        const newAmount = parseFloat(event.target.value);
+
+        setAmount((prevAmount) => {
+            const fromRate = exchangeRates[from];
+
+            if (fromRate && typeof fromRate[to] === 'number') {
+                const rate = fromRate[to];
+                setResult(newAmount * rate);
+            } else {
+                setResult(null);
+            }
+
+            return isNaN(newAmount) ? 0 : newAmount;
+        });
     };
 
     const handleCalculate = useCallback(() => {
@@ -59,9 +74,18 @@ export function Calculator() {
         }
     }, [from, to, amount, exchangeRates]);
 
+    const handleReplace = () => {
+        setFrom(to);
+        setTo(from);
+    }
+
+    useEffect(() => {
+        handleCalculate();
+    }, [from, to, amount, exchangeRates, handleCalculate]);
+
     return (
         <div className="calculator">
-            <h2>Cryptocurrency Calculator</h2>
+            <h2 className='section_title'>Cryptocurrency Calculator</h2>
 
             <div className="calc_selectors">
                 <div className="calc_selectors--item">
@@ -72,12 +96,16 @@ export function Calculator() {
                         onChange={handleFromChange}
                         value={from}
                     >
-                        <option value="bitcoin">Bitcoin</option>
-                        <option value="ethereum">Ethereum</option>
-                        <option value="cardano">Cardano</option>
-                        <option value="solana">Solana</option>
+                        {cryptoCurrencies.map((name) => (
+                            <option value={name} className="transparent_option">{name.charAt(0).toUpperCase() + name.slice(1)}</option>
+                        ))}
                     </select>
                 </div>
+
+                <div className='button_wrapper'>
+                    <button title='replace' className='replace_button' onClick={handleReplace}></button>
+                </div>
+                
 
                 <div className="calc_selectors--item">
                     <p>TO</p>
@@ -87,10 +115,9 @@ export function Calculator() {
                         onChange={handleToChange}
                         value={to}
                     >
-                        <option value="ethereum">Ethereum</option>
-                        <option value="bitcoin">Bitcoin</option>
-                        <option value="cardano">Cardano</option>
-                        <option value="solana">Solana</option>
+                        {cryptoCurrencies.map((name) => (
+                            <option value={name} className="transparent_option">{name.charAt(0).toUpperCase() + name.slice(1)}</option>
+                        ))}
                     </select>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import './sass/style.scss';
 import { Header } from './Components/Header';
@@ -7,7 +6,7 @@ import { AppRouter } from './Components/AppRouter';
 
 function App() {
   return (
-    <div className='cryptoMainPage'>
+  <div className='container'>
     <Header />
     <main className='content'>
       <AppRouter />
