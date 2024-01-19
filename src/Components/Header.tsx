@@ -1,6 +1,6 @@
 export function Header() {
     return (
-      <header className='header' id='home'>
+      <header className='header'>
         Header
       </header>
     );
