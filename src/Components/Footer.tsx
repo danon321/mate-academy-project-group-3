@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-      <header className='footer' id='home'>
+      <header className='footer'>
         Footer
       </header>
     );
