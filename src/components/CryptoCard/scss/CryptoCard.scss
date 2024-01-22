@@ -1,0 +1,22 @@
+@use '../../../sass/abstracts/index.scss';
+
+.card {
+    height: 270px;
+    width: 200px;
+    text-align: left;
+    background-color: rgba(18,38,86,255);
+    border-radius: 25px;
+    box-sizing: border-box;
+    padding: 15px;
+    & > h3 {
+        font-size: 20px;
+        font-weight: index.$font-weight-bold;
+    }
+
+    & > p {
+        font-weight: index.$font-weight-bold;
+        margin-top: 70px;
+        font-size: 24px;
+        letter-spacing: 0.5px;
+    }
+}
