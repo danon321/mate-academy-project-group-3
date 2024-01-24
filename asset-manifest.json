@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/crypto/static/css/main.19a2da51.css",
+    "main.js": "/crypto/static/js/main.fef8ece3.js",
+    "static/js/787.39def826.chunk.js": "/crypto/static/js/787.39def826.chunk.js",
+    "static/media/arrows.png": "/crypto/static/media/arrows.37ee909c8b17179d11e4.png",
+    "static/media/twitter-hover.svg": "/crypto/static/media/twitter-hover.f419c40db70389b22aee.svg",
+    "static/media/twitter.svg": "/crypto/static/media/twitter.8e6f4a2371b7eb9b9bc6.svg",
+    "static/media/linkedin-hover.svg": "/crypto/static/media/linkedin-hover.2ad08a04081aec85d295.svg",
+    "static/media/instagram-hover.svg": "/crypto/static/media/instagram-hover.34c0d4151f4f019ee3f5.svg",
+    "static/media/facebook-hover.svg": "/crypto/static/media/facebook-hover.3d54c1eb16a7f7dde1c3.svg",
+    "static/media/facebook.svg": "/crypto/static/media/facebook.fb66612f7cdfdfc53cd2.svg",
+    "static/media/linkedin.svg": "/crypto/static/media/linkedin.fe73eeef0712b5e3dfc0.svg",
+    "static/media/instagram.svg": "/crypto/static/media/instagram.e4e158596fa3ee1f7362.svg",
+    "index.html": "/crypto/index.html",
+    "main.19a2da51.css.map": "/crypto/static/css/main.19a2da51.css.map",
+    "main.fef8ece3.js.map": "/crypto/static/js/main.fef8ece3.js.map",
+    "787.39def826.chunk.js.map": "/crypto/static/js/787.39def826.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19a2da51.css",
+    "static/js/main.fef8ece3.js"
+  ]
+}
