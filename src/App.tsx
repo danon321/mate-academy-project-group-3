@@ -1,11 +1,15 @@
+import { MainPage } from './components/MainPage';
 import './sass/style.scss';
+// import { Header } from './Components/Header';
+// import { Footer } from './Components/Footer';
 
-import MembersSection from './components/MembersSection/Members';
 
 function App() {
   return (
-    <div className="App">
-      <MembersSection />
+    <div className="container">
+      {/* <Header /> */}
+      <MainPage />
+      {/* <Footer /> */}
     </div>
   );
 }
