@@ -7,6 +7,7 @@ import tronImg from './tron.png';
 import mapboxImg from './mapbox.png';
 
 export const Banner: React.FC = () => {
+  console.log(true);
   return (
     <div className="banner">
       <div className="banner__text">
