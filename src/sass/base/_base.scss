@@ -1,6 +1,35 @@
 @use '../abstracts/' as *;
 
-body {
+* {
   font-family: $font-family;
-  background-color: $color-primary;
+}
+
+.section {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: $font-size-extra-large;
+    font-family: $font-family;
+    color: $color-text-primary;
+    text-align: center;
+    padding: 10px 15px 20px 15px;
+  }
+
+  &__description {
+    font-family: $font-family;
+    font-size: $font-size-regular;
+    color: $color-text-secondary;
+    line-height: 20px;
+    text-align: center;
+    padding: 0 150px 20px 150px;
+
+    @include for-tablet() {
+      padding: 0 120px 20px 120px;
+    }
+
+    @include for-phone() {
+      padding: 0 50px 20px 50px;
+    }
+  }
 }

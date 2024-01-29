@@ -8,7 +8,7 @@ type ButtonProps = {
 };
 
 const Button = ({ children, type, Icon, ...props }: ButtonProps) => {
-  let btnClassName = `button ${type && `button--${type}`}`;
+  const btnClassName = `button ${type && `button--${type}`}`;
 
   return (
     <button className={btnClassName} {...props}>

@@ -53,7 +53,7 @@ export function Calculator() {
   const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newAmount = parseFloat(event.target.value);
 
-    setAmount((prevAmount) => {
+    setAmount(() => {
       const fromRate = exchangeRates[from];
 
       if (fromRate && typeof fromRate[to] === 'number') {
@@ -146,7 +146,7 @@ export function Calculator() {
           placeholder="Enter the amount"
           onChange={handleAmountChange}
         />
-        <Button>Calculate</Button>
+        <Button type="square">Calculate</Button>
       </div>
       <div className="calc_result">
         <h3>COVERT RESULT</h3>
