@@ -1,57 +1,62 @@
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import './scss/Slider.scss';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
-// import 'swiper/scss/pagination';
-// import 'swiper/scss/scrollbar';
 import { CryptoCard } from '../CryptoCard/CryptoCard';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-const cards = [
-  {
-    currency: 'coindesk',
-    price: '4,444.17',
-  },
-  {
-    currency: 'mapbox',
-    price: '6,666.12',
-  },
-  {
-    currency: 'polygon',
-    price: '7,777.32',
-  },
-  {
-    currency: 'tether',
-    price: '2,222.65',
-  },
-  {
-    currency: 'bitcoin',
-    price: '1,234.32',
-  },
-];
-
-interface ExchangeRates {
-  [key: string]: number;
-}
 
 export const Slider: React.FC = () => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
 
-  const [currencies, setCurrencies] = useState<ExchangeRates>();
+  const [currencies, setCurrencies] = useState<Record<string, Response>>();
 
   const APIKEY = '&x_cg_demo_api_key=CG-cx2Lfu4AWhCnnsvRsMj7B1zP';
 
   useEffect(() => {
-    const promise = axios
-      .get(
-        `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,ripple,binancecoin,litecoin,dogecoin&vs_currencies=usd`
-      )
-      .then((res) => setCurrencies(res.data))
-      .then(() => console.log(currencies))
-      .catch((e) => console.log('error:', e));
+    const fetchCurrencyPrice = (id: string) =>
+      axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=1&api_key=${APIKEY}
+  `);
+
+    const currencyIds = [
+      'ripple',
+      'ethereum',
+      'bitcoin',
+      'solana',
+      'litecoin',
+      'dogecoin',
+    ];
+
+    const fetchData = async () => {
+      try {
+        const responses = await Promise.all(
+          currencyIds.map((id) => fetchCurrencyPrice(id))
+        );
+
+        // Use an object to store the data with currency IDs as keys
+        const currenciesData: Record<string, Response> = {};
+        responses.forEach((response, index) => {
+          const currencyId = currencyIds[index];
+          currenciesData[currencyId] = response.data;
+        });
+
+        // Handle or store the data as needed
+        console.log(currenciesData);
+        setCurrencies(currenciesData);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
   }, []);
+
+  type MarketCapsData = Array<[number, number]>;
+  type Response = {
+    market_caps: MarketCapsData;
+    prices: MarketCapsData;
+    total_volumes: MarketCapsData;
+  };
 
   return (
     <section className="container">
@@ -88,13 +93,14 @@ export const Slider: React.FC = () => {
         >
           {' '}
           {currencies &&
-            Object.entries(currencies).map((currency) => {
-              console.log(currency);
+            Object.keys(currencies).map((currencyId) => {
+              console.log(currencies[currencyId]?.prices);
               return (
-                <SwiperSlide key={currency[0]} className="swiper__slide">
+                <SwiperSlide key={currencyId} className="swiper__slide">
                   <CryptoCard
-                    currency={currency[0]}
-                    price={Object.values(currency[1]) as never}
+                    currency={currencyId}
+                    price={123}
+                    marketCaps={currencies[currencyId]?.prices}
                   />
                 </SwiperSlide>
               );
