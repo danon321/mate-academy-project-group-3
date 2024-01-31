@@ -117,12 +117,10 @@ export const Slider: React.FC = () => {
           {' '}
           {currencies &&
             Object.keys(currencies).map((currencyId) => {
-              console.log(currencies[currencyId]?.prices);
               return (
                 <SwiperSlide key={currencyId} className="swiper__slide">
                   <CryptoCard
                     currency={currencyId}
-                    price={123}
                     marketCaps={currencies[currencyId]?.prices}
                   />
                 </SwiperSlide>

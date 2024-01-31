@@ -20,16 +20,10 @@ const currencyImages: Record<string, string> = {
 
 type Props = {
   currency: string;
-  price: number;
   marketCaps: ChartData[];
 };
 
-// eslint-disable-next-line react/prop-types
-export const CryptoCard: React.FC<Props> = ({
-  currency,
-  price,
-  marketCaps,
-}) => {
+export const CryptoCard: React.FC<Props> = ({ currency, marketCaps }) => {
   const value = marketCaps[marketCaps.length - 1][1];
   const difference = marketCaps[marketCaps.length - 1][1] - marketCaps[0][1];
   const differencePercent =

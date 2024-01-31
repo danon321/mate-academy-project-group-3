@@ -14,12 +14,10 @@ const LineChart: React.FC<Props> = ({ data }) => {
     const chartCanvas = chartRef.current?.getContext('2d');
 
     if (chartCanvas) {
-      // Destroy existing chart instance if it exists
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
 
-      // Convert timestamps to human-readable time format
       const timeLabels = data.map((entry) => {
         const timestamp = entry[0];
         const date = new Date(timestamp);
@@ -30,7 +28,6 @@ const LineChart: React.FC<Props> = ({ data }) => {
         }).format(date);
       });
 
-      // Create new chart instance
       chartInstance.current = new Chart(chartCanvas, {
         type: 'line',
         data: {
@@ -58,14 +55,13 @@ const LineChart: React.FC<Props> = ({ data }) => {
           },
           plugins: {
             legend: {
-              display: false, // Hide the legend
+              display: false,
             },
           },
         },
       });
     }
 
-    // Cleanup: Destroy chart instance when the component is unmounted
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
