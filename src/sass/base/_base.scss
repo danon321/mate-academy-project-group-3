@@ -1,5 +1,4 @@
-@use 'abstracts' as *; // alternative: @use 'abstracts';
-@use 'base';
+@use '../abstracts/' as *;
 
 body {
   font-family: $font-family;
