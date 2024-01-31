@@ -25,11 +25,21 @@ export const Banner: React.FC = () => {
       <img src={bannerImg} alt="" />
       <button>Get Started</button>
       <div className="banner__partners">
-        <img src={polygonImg} alt="" />
-        <img src={bitpandaImg} alt="" />
-        <img src={coindeskImg} alt="" />
-        <img src={tronImg} alt="" />
-        <img src={mapboxImg} alt="" />
+        <div>
+          <img src={polygonImg} alt="" />
+        </div>
+        <div>
+          <img src={bitpandaImg} alt="" />
+        </div>
+        <div>
+          <img src={coindeskImg} alt="" />
+        </div>
+        <div>
+          <img src={tronImg} alt="" />
+        </div>
+        <div>
+          <img src={mapboxImg} alt="" />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,5 @@
 @use '../../../sass/abstracts/index.scss';
 
-body {
-    background-color: #08173f;
-}
-
 .banner {
     box-sizing: border-box;
     width: 80%;
@@ -17,7 +13,20 @@ body {
     &__partners {
         margin-top: 200px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        & > div {
+            max-width: calc(20% - 10px);
+            display: flex;
+            justify-content: center;
+            
+            
+            @media (max-width: 1200px) {
+                width: calc(50% - 10px);
+                max-width: none;
+                margin-top: 10px;
+            }
+        }
     }
 
     & button {
@@ -60,5 +69,6 @@ body {
         background-image: url('../bannerimg.png');
         background-size: auto;
         width: 30%;
+        
     }
 }

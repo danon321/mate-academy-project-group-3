@@ -33,14 +33,12 @@ export const Slider: React.FC = () => {
           currencyIds.map((id) => fetchCurrencyPrice(id))
         );
 
-        // Use an object to store the data with currency IDs as keys
         const currenciesData: Record<string, Response> = {};
         responses.forEach((response, index) => {
           const currencyId = currencyIds[index];
           currenciesData[currencyId] = response.data;
         });
 
-        // Handle or store the data as needed
         console.log(currenciesData);
         setCurrencies(currenciesData);
       } catch (error) {
@@ -52,11 +50,36 @@ export const Slider: React.FC = () => {
   }, []);
 
   type MarketCapsData = Array<[number, number]>;
+
   type Response = {
     market_caps: MarketCapsData;
     prices: MarketCapsData;
     total_volumes: MarketCapsData;
   };
+
+  const slidesPerView = {
+    desktop: 4,
+    tablet: 3,
+    mobile: 2,
+  };
+
+  const updateSlidesPerView = () => {
+    if (swiper) {
+      const width = window.innerWidth;
+
+      if (width >= 1024) {
+        swiper.params.slidesPerView = slidesPerView.desktop;
+      } else if (width >= 768) {
+        swiper.params.slidesPerView = slidesPerView.tablet;
+      } else {
+        swiper.params.slidesPerView = slidesPerView.mobile;
+      }
+
+      swiper.update();
+    }
+  };
+
+  window.addEventListener('resize', updateSlidesPerView);
 
   return (
     <section className="container">
