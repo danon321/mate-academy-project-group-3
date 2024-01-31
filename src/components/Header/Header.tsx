@@ -1,22 +1,39 @@
-import React, { useState } from 'react';
-import './Navigation.scss';
+import React, { useEffect, useState } from 'react';
+import './header.scss';
+import classNames from 'classnames';
 
-export const Navigation = () => {
+export const Header = () => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!event.target.checked) {
-      setIsChecked((current) => !current);
-      //console.log(isChecked);
-      return;
-    }
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 992) {
+        setIsChecked(false);
+      }
+    };
 
-    setIsChecked(false);
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleCheckbox = () => {
+    setIsChecked((current) => !current);
+    document.body.classList.toggle('navigation--checked', !isChecked);
   };
 
   return (
     <header className="header">
-      <nav className="navigation">
+      <img src="" alt="logo" className="header__logo" />
+      <nav
+        className={classNames(['navigation'], {
+          'navigation--visible': isChecked,
+        })}
+      >
         <ul className="navigation__list">
           <li className="navigation__list-item">
             <a className="navigation__link" href="#">
@@ -54,7 +71,8 @@ export const Navigation = () => {
         <input
           type="checkbox"
           className="navigation__input"
-          onChange={handleInput}
+          checked={isChecked}
+          onChange={handleCheckbox}
         />
       </label>
     </header>

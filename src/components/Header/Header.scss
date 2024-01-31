@@ -1,50 +1,68 @@
 @use '../../sass/abstracts/' as *;
 
-$bar-gap: 6px;
-$bar-height: 8px;
+$bar-gap: 4px;
+$bar-height: 5px;
 $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
 
 .header {
-  height: 100px;
-  position: relative;
+  &__logo {
+    z-index: 1001;
+  }
 }
 
 .navigation {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  justify-self: center;
 
   font-family: $font-family;
   font-size: $font-size-medium;
   color: $color-text-primary;
 
+  margin: 0 auto 0 auto;
+
   @include for-tablet() {
     display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+
+    margin: unset;
+  }
+
+  &--checked {
+    overflow-y: hidden;
   }
 
   &--visible {
     display: flex;
-    flex-direction: column;
-    justify-content: stretch;
+    background-color: darkblue;
+    background-image: url('../Calculator/backgr.png');
+
+    & ul {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__list {
     display: flex;
     flex-direction: row;
-    height: 1.3em;
+    gap: 1.3em;
 
     &-item {
+      height: 1.3em;
       position: relative;
-      margin-left: 1.5em;
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 
   &__link {
+    display: inline-block;
+    height: 100%;
     white-space: nowrap;
     color: $color-text-primary;
     text-decoration: none;
@@ -79,9 +97,7 @@ $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
     gap: $bar-gap;
     width: max-content;
     cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    z-index: 1000;
 
     @include for-tablet() {
       display: flex;
@@ -91,9 +107,9 @@ $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
     &::before,
     & .navigation__input {
       content: '';
-      width: 60px;
+      width: 40px;
       height: $bar-height;
-      background: black;
+      background: $color-text-primary;
       border-radius: 100px;
       transform-origin: left center;
       transition:
