@@ -22,14 +22,14 @@ export const Banner: React.FC = () => {
         </p>
       </div>
 
-      <img src={bannerImg} alt="" />
+      <img src={bannerImg} alt="Screen" />
       <button>Get Started</button>
       <div className="banner__partners">
-        <img src={polygonImg} alt="" />
-        <img src={bitpandaImg} alt="" />
-        <img src={coindeskImg} alt="" />
-        <img src={tronImg} alt="" />
-        <img src={mapboxImg} alt="" />
+        <img src={polygonImg} alt="Polygon" />
+        <img src={bitpandaImg} alt="BitPanda" />
+        <img src={coindeskImg} alt="CoinDesk" />
+        <img src={mapboxImg} alt="MapBox" />
+        <img src={tronImg} alt="Tron" />
       </div>
     </div>
   );
