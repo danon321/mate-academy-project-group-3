@@ -1,10 +1,7 @@
 @use 'abstracts' as *;
 @use 'base';
 
-
 .container {
-    background-color: darkblue;
-    background-image: url('../components/Calculator/backgr.png');
     color: white;
     font-size: 10px;
     height: 100%;
