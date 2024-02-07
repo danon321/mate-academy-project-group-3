@@ -21,8 +21,13 @@
             justify-content: center;
             
             
-            @media (max-width: 1200px) {
+            @media (max-width: 1370px) {
                 width: calc(50% - 10px);
+                max-width: none;
+                margin-top: 10px;
+            }
+            @media (max-width: 600px) {
+                width: calc(100%);
                 max-width: none;
                 margin-top: 10px;
             }
@@ -38,7 +43,15 @@
     & > img {
         position: absolute;
         top:0;
+        z-index: -1;
         right:-100px;
+        opacity: 0.8;
+        @media (min-width: 1000px) {
+            opacity: 1;
+        }
+        @media (max-width: 800px) {
+            display: none;
+        }
     }
 
     &__text {
@@ -49,16 +62,24 @@
         & p {
             text-align: left;
             margin-top: 40px;
-            opacity: 0.6;
+            opacity: 0.9;
             line-height: 25px;
-            width: 45%;
+            width: 80%;
+            @media (min-width: 1000px) {
+                width: 45%;
+                opacity: 0.6;
+            }
         }
         & h1 {
             font-size: 45px;
             text-align: left;
             line-height: 55px;
             font-weight: 500;
-            width: 40%;
+            width: 80%;
+
+            @media (min-width: 1200px) {
+                width: 40%;
+            }
             & span {
                 color: index.$color-highlight;
             }
@@ -69,6 +90,7 @@
         background-image: url('../bannerimg.png');
         background-size: auto;
         width: 30%;
+        
         
     }
 }

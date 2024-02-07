@@ -20,7 +20,7 @@ const currencyImages: Record<string, string> = {
 
 type Props = {
   currency: string;
-  marketCaps: ChartData[];
+  marketCaps: [number, number][];
 };
 
 export const CryptoCard: React.FC<Props> = ({ currency, marketCaps }) => {
@@ -32,7 +32,7 @@ export const CryptoCard: React.FC<Props> = ({ currency, marketCaps }) => {
   return (
     <div className="card">
       <h3>
-        <img src={currencyImages[currency]} alt="" height={'30px'} />
+        <img src={currencyImages[currency]} alt="Currency" height={'30px'} />
         {currency}
       </h3>
       <div className="card__price">

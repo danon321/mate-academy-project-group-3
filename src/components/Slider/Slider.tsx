@@ -9,7 +9,8 @@ import axios from 'axios';
 export const Slider: React.FC = () => {
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
 
-  const [currencies, setCurrencies] = useState<Record<string, Response>>();
+  const [currencies, setCurrencies] =
+    useState<Record<string, [number, number][]>>();
 
   const APIKEY = '&x_cg_demo_api_key=CG-cx2Lfu4AWhCnnsvRsMj7B1zP';
 
@@ -33,13 +34,24 @@ export const Slider: React.FC = () => {
           currencyIds.map((id) => fetchCurrencyPrice(id))
         );
 
-        const currenciesData: Record<string, Response> = {};
+        const currenciesData: Record<string, [number, number][]> = {};
         responses.forEach((response, index) => {
           const currencyId = currencyIds[index];
-          currenciesData[currencyId] = response.data;
+          const prices = response.data['prices'].filter(
+            (_: unknown, index: number) => {
+              if (
+                index === 0 ||
+                index % 4 === 0 ||
+                index === response.data['prices'].length - 1
+              ) {
+                return true;
+              } else {
+                return false;
+              }
+            }
+          );
+          currenciesData[currencyId] = prices;
         });
-
-        console.log(currenciesData);
         setCurrencies(currenciesData);
       } catch (error) {
         console.error('Error:', error);
@@ -49,37 +61,37 @@ export const Slider: React.FC = () => {
     fetchData();
   }, []);
 
-  type MarketCapsData = Array<[number, number]>;
-
-  type Response = {
-    market_caps: MarketCapsData;
-    prices: MarketCapsData;
-    total_volumes: MarketCapsData;
-  };
-
-  const slidesPerView = {
+  const slidesAmount = {
     desktop: 4,
     tablet: 3,
-    mobile: 2,
+    mobile: 1,
   };
 
   const updateSlidesPerView = () => {
-    if (swiper) {
+    if (swiper && swiper.params) {
       const width = window.innerWidth;
 
-      if (width >= 1024) {
-        swiper.params.slidesPerView = slidesPerView.desktop;
-      } else if (width >= 768) {
-        swiper.params.slidesPerView = slidesPerView.tablet;
+      if (width >= 1300) {
+        swiper.params.slidesPerView = slidesAmount.desktop;
+      } else if (width >= 950) {
+        swiper.params.slidesPerView = slidesAmount.tablet;
       } else {
-        swiper.params.slidesPerView = slidesPerView.mobile;
+        swiper.params.slidesPerView = slidesAmount.mobile;
       }
 
       swiper.update();
     }
   };
 
-  window.addEventListener('resize', updateSlidesPerView);
+  useEffect(() => {
+    updateSlidesPerView();
+
+    window.addEventListener('resize', updateSlidesPerView);
+
+    return () => {
+      window.removeEventListener('resize', updateSlidesPerView);
+    };
+  }, [swiper]);
 
   return (
     <section className="container">
@@ -121,7 +133,7 @@ export const Slider: React.FC = () => {
                 <SwiperSlide key={currencyId} className="swiper__slide">
                   <CryptoCard
                     currency={currencyId}
-                    marketCaps={currencies[currencyId]?.prices}
+                    marketCaps={currencies[currencyId]}
                   />
                 </SwiperSlide>
               );
