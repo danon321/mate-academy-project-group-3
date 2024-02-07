@@ -1,13 +1,14 @@
-import './App.css';
+import { MainPage } from './components/MainPage';
 import './sass/style.scss';
-import { Banner } from './components/Banner/Banner';
-import { Slider } from './components/Slider/Slider';
+// import { Header } from './Components/Header';
+// import { Footer } from './Components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Banner />
-      <Slider />
+    <div className="container">
+      {/* <Header /> */}
+      <MainPage />
+      {/* <Footer /> */}
     </div>
   );
 }
