@@ -53,7 +53,7 @@ export function Calculator() {
   const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newAmount = parseFloat(event.target.value);
 
-    setAmount((prevAmount) => {
+    setAmount(() => {
       const fromRate = exchangeRates[from];
 
       if (fromRate && typeof fromRate[to] === 'number') {

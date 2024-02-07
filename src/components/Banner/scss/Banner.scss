@@ -13,6 +13,7 @@
     &__partners {
         margin-top: 200px;
         display: flex;
+
         justify-content: space-around;
         flex-wrap: wrap;
         & > div {
@@ -31,7 +32,7 @@
                 max-width: none;
                 margin-top: 10px;
             }
-        }
+      }
     }
 
     & button {
@@ -43,6 +44,7 @@
     & > img {
         position: absolute;
         top:0;
+
         z-index: -1;
         right:-100px;
         opacity: 0.8;
@@ -51,7 +53,7 @@
         }
         @media (max-width: 800px) {
             display: none;
-        }
+      }
     }
 
     &__text {
@@ -80,6 +82,7 @@
             @media (min-width: 1200px) {
                 width: 40%;
             }
+
             & span {
                 color: index.$color-highlight;
             }
@@ -90,7 +93,5 @@
         background-image: url('../bannerimg.png');
         background-size: auto;
         width: 30%;
-        
-        
     }
 }

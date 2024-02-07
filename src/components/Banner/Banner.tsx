@@ -21,7 +21,6 @@ export const Banner: React.FC = () => {
           traditional financial systems.
         </p>
       </div>
-
       <img src={bannerImg} alt="" />
       <button>Get Started</button>
       <div className="banner__partners">
