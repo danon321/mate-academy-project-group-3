@@ -1,7 +1,6 @@
-import { Header } from './components/Header/Header';
 import { MainPage } from './components/MainPage';
 import './sass/style.scss';
-// import { Header } from './components/Header';
+import { Header } from './components/Header';
 // import { Footer } from './Components/Footer';
 
 function App() {

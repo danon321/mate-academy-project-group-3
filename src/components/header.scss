@@ -1,11 +1,13 @@
-@use '../../sass/abstracts/' as *;
+@use '../sass/abstracts' as *;
 
 $bar-gap: 4px;
 $bar-height: 5px;
-$hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
+$X-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
 
 .header {
   &__logo {
+    font-family: $font-family;
+    text-transform: uppercase;
     z-index: 1001;
   }
 }
@@ -23,15 +25,16 @@ $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
   margin: 0 auto 0 auto;
 
   @include for-tablet() {
-    display: none;
+    background-color: darkblue;
+    background-image: url('../components/Calculator/backgr.png');
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
+    overflow: hidden;
+    transform: translateX(-100%);
     z-index: 1000;
-
-    margin: unset;
   }
 
   &--checked {
@@ -39,20 +42,18 @@ $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
   }
 
   &--visible {
-    display: flex;
-    background-color: darkblue;
-    background-image: url('../Calculator/backgr.png');
-
-    & ul {
-      flex-direction: column;
-      align-items: center;
-    }
+    transform: translateX(0);
   }
 
   &__list {
     display: flex;
     flex-direction: row;
     gap: 1.3em;
+
+    @include for-tablet() {
+      flex-direction: column;
+      align-items: center;
+    }
 
     &-item {
       height: 1.3em;
@@ -74,12 +75,12 @@ $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
 
     &::after {
       content: '';
-      width: 80%;
+      width: 100%;
       height: 2px;
       border-radius: 20%;
       background-color: $color-highlight;
       position: absolute;
-      bottom: 0;
+      bottom: -3px;
       left: 50%;
       transform: translateX(-50%);
       opacity: 0;
@@ -121,13 +122,13 @@ $hamburger-width: calc((#{$bar-height} * 3 + #{$bar-gap} * 2) * 1.414);
 
     &:has(.navigation__input:checked)::before {
       rotate: 45deg;
-      width: $hamburger-width;
+      width: $X-width;
       translate: 0 calc(#{$bar-height} / -2);
     }
 
     &:has(.navigation__input:checked)::after {
       rotate: -45deg;
-      width: $hamburger-width;
+      width: $X-width;
       translate: 0 calc(#{$bar-height} / 2);
     }
   }
