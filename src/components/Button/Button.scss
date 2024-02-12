@@ -9,7 +9,7 @@
   padding: 12px 35px;
   border: 1px solid $color-primary;
   cursor: pointer;
-
+  font-weight: 600;
   &:hover {
     background: #00bef1;
     border: 1px solid $color-highlight;
@@ -17,10 +17,16 @@
 
   &--square {
     border-radius: 5px;
+
+    letter-spacing: 1px;
   }
 
   &--transparent {
     background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: unset;
   }
 
   &--transparent-icon {
@@ -37,7 +43,8 @@
   }
 
   &__icon {
-    width: 25px;
-    height: 25px;
+    width: 30px !important;
+    height: 30px;
+    display: block;
   }
 }

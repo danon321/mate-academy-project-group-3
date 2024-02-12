@@ -5,6 +5,8 @@ import bitpandaImg from './bitpanda.png';
 import coindeskImg from './coindesk.png';
 import tronImg from './tron.png';
 import mapboxImg from './mapbox.png';
+import Button from '../Button/Button';
+import PlayIcon from '../../icons/playButton';
 
 export const Banner: React.FC = () => {
   return (
@@ -21,8 +23,16 @@ export const Banner: React.FC = () => {
           traditional financial systems.
         </p>
       </div>
-      <img src={bannerImg} alt="" />
-      <button>Get Started</button>
+
+
+      <img src={bannerImg} alt="Screen" />
+      <div className="banner__buttons">
+        <Button type="square">Get Started</Button>
+        <Button type="transparent" Icon={PlayIcon}>
+          How it work
+        </Button>
+      </div>
+
       <div className="banner__partners">
         <div>
           <img src={polygonImg} alt="" />
