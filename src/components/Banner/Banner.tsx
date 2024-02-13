@@ -24,6 +24,7 @@ export const Banner: React.FC = () => {
         </p>
       </div>
 
+
       <img src={bannerImg} alt="Screen" />
       <div className="banner__buttons">
         <Button type="square">Get Started</Button>
@@ -33,11 +34,21 @@ export const Banner: React.FC = () => {
       </div>
 
       <div className="banner__partners">
-        <img src={polygonImg} alt="Polygon" />
-        <img src={bitpandaImg} alt="BitPanda" />
-        <img src={coindeskImg} alt="CoinDesk" />
-        <img src={mapboxImg} alt="MapBox" />
-        <img src={tronImg} alt="Tron" />
+        <div>
+          <img src={polygonImg} alt="" />
+        </div>
+        <div>
+          <img src={bitpandaImg} alt="" />
+        </div>
+        <div>
+          <img src={coindeskImg} alt="" />
+        </div>
+        <div>
+          <img src={tronImg} alt="" />
+        </div>
+        <div>
+          <img src={mapboxImg} alt="" />
+        </div>
       </div>
     </div>
   );

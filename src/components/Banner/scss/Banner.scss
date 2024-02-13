@@ -1,9 +1,5 @@
 @use '../../../sass/abstracts/index.scss';
 
-body {
-    background-color: #08173f;
-}
-
 .banner {
     box-sizing: border-box;
     width: 80%;
@@ -21,7 +17,26 @@ body {
     &__partners {
         margin-top: 200px;
         display: flex;
-        justify-content: space-between;
+
+        justify-content: space-around;
+        flex-wrap: wrap;
+        & > div {
+            max-width: calc(20% - 10px);
+            display: flex;
+            justify-content: center;
+            
+            
+            @media (max-width: 1370px) {
+                width: calc(50% - 10px);
+                max-width: none;
+                margin-top: 10px;
+            }
+            @media (max-width: 600px) {
+                width: calc(100%);
+                max-width: none;
+                margin-top: 10px;
+            }
+      }
     }
 
     & button {
@@ -33,7 +48,16 @@ body {
     & > img {
         position: absolute;
         top:0;
+
+        z-index: -1;
         right:-100px;
+        opacity: 0.8;
+        @media (min-width: 1000px) {
+            opacity: 1;
+        }
+        @media (max-width: 800px) {
+            display: none;
+      }
     }
 
     &__text {
@@ -44,16 +68,25 @@ body {
         & p {
             text-align: left;
             margin-top: 40px;
-            opacity: 0.6;
+            opacity: 0.9;
             line-height: 25px;
-            width: 45%;
+            width: 80%;
+            @media (min-width: 1000px) {
+                width: 45%;
+                opacity: 0.6;
+            }
         }
         & h1 {
-            font-size: 42px;
+            font-size: 45px;
             text-align: left;
             line-height: 55px;
             font-weight: 500;
-            width: 40%;
+            width: 80%;
+
+            @media (min-width: 1200px) {
+                width: 40%;
+            }
+
             & span {
                 color: index.$color-highlight;
             }
