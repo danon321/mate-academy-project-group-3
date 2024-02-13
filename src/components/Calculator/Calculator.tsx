@@ -151,7 +151,9 @@ export function Calculator() {
       <div className="calc_result">
         <h3>COVERT RESULT</h3>
         {result !== null ? (
-          <p>{`${amount} ${from.toUpperCase()} = ${result.toFixed(3)} ${to.toUpperCase()}`}</p>
+          <p>{`${amount} ${from.toUpperCase()} = ${result.toFixed(
+            3
+          )} ${to.toUpperCase()}`}</p>
         ) : (
           <p>Conversion rate not available</p>
         )}
