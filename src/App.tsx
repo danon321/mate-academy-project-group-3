@@ -12,7 +12,6 @@ function App() {
       <ParticlesBackground />
       <div className="container">
         <Banner />
-        {/* <Header /> */}
         <MainPage />
         {/* <Footer /> */}
       </div>
