@@ -2,12 +2,10 @@
 @use 'base';
 
 .container {
-  background-color: darkblue;
-  background-image: url('../components/Calculator/backgr.png');
-  color: white;
-  font-size: 10px;
-  height: 100%;
-  width: 100%;
+    color: white;
+    font-size: 10px;
+    height: 100%;
+    width: 100%;
 }
 
 .header {

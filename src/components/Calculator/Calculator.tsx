@@ -53,7 +53,7 @@ export function Calculator() {
   const handleAmountChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newAmount = parseFloat(event.target.value);
 
-    setAmount((prevAmount) => {
+    setAmount(() => {
       const fromRate = exchangeRates[from];
 
       if (fromRate && typeof fromRate[to] === 'number') {
@@ -151,7 +151,9 @@ export function Calculator() {
       <div className="calc_result">
         <h3>COVERT RESULT</h3>
         {result !== null ? (
-          <p>{`${amount} ${from.toUpperCase()} = ${result.toFixed(3)} ${to.toUpperCase()}`}</p>
+          <p>{`${amount} ${from.toUpperCase()} = ${result.toFixed(
+            3
+          )} ${to.toUpperCase()}`}</p>
         ) : (
           <p>Conversion rate not available</p>
         )}
