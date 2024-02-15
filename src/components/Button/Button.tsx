@@ -3,7 +3,7 @@ import './Button.scss';
 
 type ButtonProps = {
   children?: string;
-  type?: string;
+  type?: 'square' | 'transparent' | 'transparent-icon';
   Icon?: () => ReactElement;
 };
 

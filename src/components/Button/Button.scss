@@ -11,7 +11,7 @@
   cursor: pointer;
   font-weight: 600;
   &:hover {
-    background: #00bef1;
+    background: $color-highlight;
     border: 1px solid $color-highlight;
   }
 
