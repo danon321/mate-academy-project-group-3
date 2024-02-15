@@ -6,6 +6,7 @@ import './sass/style.scss';
 import ParticlesBackground from './components/ParticlesBackground/ParticlesBackground';
 import { Banner } from './components/Banner/Banner';
 
+
 function App() {
   return (
     <>

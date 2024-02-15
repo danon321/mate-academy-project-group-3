@@ -6,7 +6,7 @@ import coindeskImg from './coindesk.png';
 import tronImg from './tron.png';
 import mapboxImg from './mapbox.png';
 import Button from '../Button/Button';
-import PlayIcon from '../../icons/playButton';
+import PlayIcon from '../../playButton';
 
 export const Banner: React.FC = () => {
   return (
@@ -23,7 +23,6 @@ export const Banner: React.FC = () => {
           traditional financial systems.
         </p>
       </div>
-
 
       <img src={bannerImg} alt="Screen" />
       <div className="banner__buttons">

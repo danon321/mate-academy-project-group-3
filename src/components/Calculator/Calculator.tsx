@@ -146,7 +146,7 @@ export function Calculator() {
           placeholder="Enter the amount"
           onChange={handleAmountChange}
         />
-        <Button>Calculate</Button>
+        <Button type="square">Calculate</Button>
       </div>
       <div className="calc_result">
         <h3>COVERT RESULT</h3>
