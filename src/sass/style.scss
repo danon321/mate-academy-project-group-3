@@ -2,18 +2,19 @@
 @use 'base';
 
 .container {
-    color: white;
-    font-size: 10px;
-    height: 100%;
-    width: 100%;
-    letter-spacing: 1.25px;
+  color: white;
+  font-size: 10px;
+  height: 100%;
+  width: 100%;
+  letter-spacing: 1.25px;
 }
 
 .header {
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 10vw 0 10vw;
 }
 
 .main_page {
@@ -41,10 +42,10 @@
 }
 
 .section_description {
-    font-size: 2em;
-    text-align: center;
-    margin: 0 50px;
-    margin-bottom: 40px;
+  font-size: 2em;
+  text-align: center;
+  margin: 0 50px;
+  margin-bottom: 40px;
 
   @include for-tablet() {
     font-size: 2em;

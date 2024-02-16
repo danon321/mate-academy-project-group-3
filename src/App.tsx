@@ -4,7 +4,6 @@ import ParticlesBackground from './components/ParticlesBackground/ParticlesBackg
 import { Footer } from './components/Footer/Footer';
 import { Banner } from './components/Banner/Banner';
 
-
 function App() {
   return (
     <>
